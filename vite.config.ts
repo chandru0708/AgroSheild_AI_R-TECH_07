@@ -5,32 +5,26 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: true,
     port: 8080,
-    hmr: {
-      overlay: false,
-    },
   },
 
   preview: {
-    host: "::",
+    host: true,
     port: 8080,
-    allowedHosts: ["agroshield-ai-r-tech-07.onrender.com"],
+    allowedHosts: [
+      "agroshield-ai-r-tech-07.onrender.com"
+    ],
   },
 
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(),
+    mode === "development" && componentTagger()
+  ].filter(Boolean),
 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-    dedupe: [
-      "react",
-      "react-dom",
-      "react/jsx-runtime",
-      "react/jsx-dev-runtime",
-      "@tanstack/react-query",
-      "@tanstack/query-core",
-    ],
   },
 }));
