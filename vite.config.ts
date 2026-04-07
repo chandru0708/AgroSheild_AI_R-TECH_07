@@ -13,14 +13,11 @@ export default defineConfig(({ mode }) => ({
     host: true,
     port: 8080,
     allowedHosts: [
-      "agroshield-ai-r-tech-07.onrender.com"
+      "agrosheild-ai-r-tech-07.onrender.com"
     ],
   },
 
-  plugins: [
-    react(),
-    mode === "development" && componentTagger()
-  ].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
 
   resolve: {
     alias: {
